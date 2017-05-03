@@ -1,0 +1,33 @@
+html
+	head
+		meta(charset='utf-8')
+		meta(name='viewport',content='width=device-width,initial-scale=1')
+		link(rel="stylesheet",href="css/bootstrap.min.css")
+		title!=title
+	body
+		nav(class="navbar navbar-inverse")
+			.container-fluid
+				.navbar-header
+					button(type="button",class="navbar-toggle collapsed",data-toggle="collapse",data-target="#bs-example-navbar-collapse-9",aria-expanded="false")
+						span(class="sr-only") Toggle navigation
+						span(class="icon-bar")
+						span(class="icon-bar")
+						span(class="icon-bar")
+					a(class="navbar-brand",href="/") 相册
+				div(class="collapse navbar-collapse",id="bs-example-navbar-collapse-9")
+					ul(class="nav navbar-nav")
+						li.active
+							a(href="./list") 列表
+						li
+							a(href="./upload") 上传
+
+		div(class="bs-example",data-example-id="simple-thumbnails")
+			.row
+				- each val,index in wjjArray
+					div(class="col-xs-6 col-md-3")
+						a(href= "./" + val,class="thumbnail")
+							img(data-src="holder.js/100%x180",alt="100%x180",style="height: 180px; width: 100%; display: block;",src="img/wjj.png")
+						p= val
+      
+		script(src='https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js')
+		script(src='js/bootstrap.min.js')
