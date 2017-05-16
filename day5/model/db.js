@@ -36,4 +36,13 @@ exports.find = function(collectionName,json,args,callback) {
 			}
 		})
 	})
-}
+};
+//删除数据
+exports.removeMany = function(collection,json,callback) {
+	_connectDB(function(err,db) {
+		db.collection(collection).deleteMany(json,function(err,results) {
+			callback(err,results);
+			db.close();
+		})
+	})
+};
