@@ -32,13 +32,14 @@ app.post("/tijiao",function(req,res,next) {
 		//写入数据库
 		db.insertOne("liuyanben",{
 			"name":fields.name,
-			"msg":fields.msg
+			"msg":fields.msg,
+			"time":fields.time
 		},function(err,result) {
 			if(err) {
 				res.json("-1");
 				return;
 			}
-			res.json("1");
+			res.json(result);
 		})
 	});
 });
